@@ -29,7 +29,7 @@ public class AuthenFilter implements Filter {
     //ขาเข้า
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-      
+      this.config = filterConfig;
     }
 
     
@@ -41,7 +41,7 @@ public class AuthenFilter implements Filter {
         HttpSession session = ((HttpServletRequest) request).getSession(false);
         
         if(session == null || session.getAttribute("LoggedIn") == null){
-            config.getServletContext().getRequestDispatcher("Login").forward(request, response);
+            config.getServletContext().getRequestDispatcher("/Login").forward(request, response);
         } else {
             chain.doFilter(request, response);
         }
