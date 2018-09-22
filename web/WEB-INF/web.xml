@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AuthenFilter</filter-name>
+        <filter-class>sitbank.Filter.AuthenFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenFilter</filter-name>
+        <servlet-name>MyAccountServlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>sitbank.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MyAccountServlet</servlet-name>
+        <servlet-class>sitbank.controller.MyAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyAccountServlet</servlet-name>
+        <url-pattern>/MyAccount</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
