@@ -18,6 +18,22 @@
         <servlet-name>MyAccountServlet</servlet-name>
         <servlet-class>sitbank.controller.MyAccountServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DepositServlet</servlet-name>
+        <servlet-class>sitbank.controller.DepositServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WithdrewServlet</servlet-name>
+        <servlet-class>sitbank.controller.WithdrewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HistoryServlets</servlet-name>
+        <servlet-class>sitbank.controller.HistoryServlets</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>sitbank.controller.LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -25,6 +41,22 @@
     <servlet-mapping>
         <servlet-name>MyAccountServlet</servlet-name>
         <url-pattern>/MyAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DepositServlet</servlet-name>
+        <url-pattern>/Deposit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WithdrewServlet</servlet-name>
+        <url-pattern>/Withdrew</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryServlets</servlet-name>
+        <url-pattern>/History</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
