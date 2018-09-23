@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Deposit</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Deposit</h1>
+        <form action="Deposit" method="POST">
+            <label>Amount</label>
+            <input type="text " name="DepositAm">
+            <input type="submit">
+        </from>
     </body>
 </html>
