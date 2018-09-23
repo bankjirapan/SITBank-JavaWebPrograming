@@ -12,6 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Login</h1>
+        <form action="Login" method="POST">
+        <table border="1">
+            <tr>
+                <th>Account ID : </th>
+                <td><input type="text" name="inAccountID"></td>
+            </tr>
+            <tr>
+                <th>PIN ID : </th>
+                <td><input type="password" name="inPin"></td>
+            </tr>
+            <th><button type="submit">Login</button></th>
+        </form>
+        </table>
     </body>
 </html>
