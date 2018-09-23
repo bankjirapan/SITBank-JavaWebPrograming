@@ -16,6 +16,7 @@
         
         <h3>Your Balance : ${sessionScope.LoggedIn.balance}</h3>
 
+        ${sessionScope.finish}
         <ul>
             <li> <a href="Deposit">Deposit</a></li>
             <li> <a href="Withdrew">Withdrew</a></li>
