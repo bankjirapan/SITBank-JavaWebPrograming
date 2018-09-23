@@ -12,6 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+         <h1>WithDrew</h1>
+        <form action="Withdrew" method="POST">
+            <label>Amount</label>
+            <input type="text " name="WithDrewAm">
+            <input type="submit">
+        </from>
+    </body>
     </body>
 </html>
