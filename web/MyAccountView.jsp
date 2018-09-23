@@ -12,6 +12,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>My Account of ${sessionScope.LoggedIn.name}</h1>
+        
+        <h3>Your Balance : ${sessionScope.LoggedIn.balance}</h3>
+
+        <ul>
+            <li> <a href="Deposit">Deposit</a></li>
+            <li> <a href="Withdrew">Withdrew</a></li>
+            <li> <a href="History">History</a></li>
+            <br><br>
+            <li><a href="Logout">Logout</a></li>
+        </ul>
     </body>
 </html>
