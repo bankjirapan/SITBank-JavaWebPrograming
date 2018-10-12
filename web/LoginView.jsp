@@ -26,5 +26,7 @@
             <th><button type="submit">Login</button></th>
         </form>
         </table>
+    
+            <p style="color : #FF0000">${msg}</p>
     </body>
 </html>
