@@ -77,7 +77,7 @@ public class LoginServlet extends HttpServlet {
                 //กรณีไม่เข้า if ใดๆ กลับหน้าเดิม
                 request.setAttribute("msg", " Account or Pin Invalid");
                 getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
-
+                return;
             }
 
         }
