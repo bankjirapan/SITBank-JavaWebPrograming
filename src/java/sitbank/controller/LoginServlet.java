@@ -63,14 +63,18 @@ public class LoginServlet extends HttpServlet {
             //กรณีมีผู้ใช้ แสดงว่า SearchAccount มันไม่เท้ากับ Null
             if (SearchAccount != null) {
 
-                
+                //ดึง พิน จาก SearchAccount  และ มันเท่ากับ พารามิเตอร์ที่รับเข้ามา
                 if (SearchAccount.getPin()== AccountPIN) {
 
+                    //สร้าง Session ใหม่ ที่ชื่อว่า LoggedIn จากนั้นนำ SearchAccount เข้าไปใน Session
                     request.getSession(false).setAttribute("LoggedIn", SearchAccount);
+                    //เปลี่ยนหน้าโดยใช้  Response จะทำการเปลี่ยนทั้ง URL
                     response.sendRedirect("MyAccount");
                     return;
 
                 }
+                
+                //กรณีไม่เข้า if ใดๆ กลับหน้าเดิม
                 request.setAttribute("msg", " Account or Pin Invalid");
                 getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
 
@@ -78,6 +82,7 @@ public class LoginServlet extends HttpServlet {
 
         }
 
+        //กรณีไม่มี Parameter ใดๆ
         getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
 
     }
