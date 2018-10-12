@@ -50,15 +50,21 @@ public class LoginServlet extends HttpServlet {
         //ถ้ามัน parameter ไม่ว้าง
         if (inAccountID != null && inPin != null) {
 
+            //แปลงค่าเป็น Int เพื่อที่จะนำไปตรวจสอบต่อไป
             int AccountID = parseInt(inAccountID);
+            int AccountPIN = parseInt(inPin);
 
+            //โหลด Controller เข้ามาและส่งค่าของ Persistanc เข้าไป
             AccountJpaController accountCtrl = new AccountJpaController(utx, emf);
 
+            //นำ Model Account เข้ามา จากนั้นนำไปค้นหาว่ามีผู้ใช้นี้หรือไม่
             Account SearchAccount = accountCtrl.findAccount(AccountID);
 
+            //กรณีมีผู้ใช้ แสดงว่า SearchAccount มันไม่เท้ากับ Null
             if (SearchAccount != null) {
 
-                if (SearchAccount.getAccountid() == AccountID) {
+                
+                if (SearchAccount.getPin()== AccountPIN) {
 
                     request.getSession(false).setAttribute("LoggedIn", SearchAccount);
                     response.sendRedirect("MyAccount");
