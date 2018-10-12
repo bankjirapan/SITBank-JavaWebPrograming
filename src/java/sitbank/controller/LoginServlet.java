@@ -42,6 +42,13 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //ฟังก์ชั่นตรวจสอบว่าเคย login ไปยังถ้ายังก็อยู่หน้า นี้ต่อถ้า login แล้วก็ไปหน้า MyAccount เลย
+        if(request.getSession().getAttribute("LoggedIn") != null){
+            response.sendRedirect("MyAccount");
+            return;
+        }
+        
 
         //รับ พารามิเตอร์เข้ามาสองตัว
         String inAccountID = request.getParameter("inAccountID");
