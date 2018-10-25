@@ -30,7 +30,7 @@ public class MyAccountServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
    
-        
+        //หน้า My Acoount ไม่มีอะไรแค่โหลดหน้าขึ้นมาธรรมดา
         getServletContext().getRequestDispatcher("/MyAccountView.jsp").forward(request, response);
         
         
