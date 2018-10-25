@@ -30,11 +30,15 @@ import sitbank.jpa.models.History;
  */
 public class DepositServlet extends HttpServlet {
 
+    
+    //สร้าง Persistance ปกติ
     @PersistenceUnit(unitName = "SITBankPU")
     EntityManagerFactory emf;
 
     @Resource
     UserTransaction utx;
+    
+    // ด้านบนนี่จำเป้นต้องจำให้ได้
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,23 +52,37 @@ public class DepositServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //โหลด session ขึ้นมา
         HttpSession session = request.getSession(false);
+        
+        // นำ sesion ที่ชื่อว่า LoggedIn นำมายัดไว้ใน object AccountLoggedIn โดย แคสให้มันเป็น Account
         Account AccountLoggedIn = (Account) session.getAttribute("LoggedIn");
 
+        
+        //ถ้ามีการส่ง parameter ที่ชื่อว่า DepositAm มา แสดงว่ามันไม่เท่ากับ null
         if (request.getParameter("DepositAm") != null) {
 
+            
+            //แปลงค่าที่รับมาเป็น int
             int AmountDeposit = parseInt(request.getParameter("DepositAm"));
 
+            //โหลด jpa controller ขึ้นมาชื่อว่า accountCtrl
             AccountJpaController accountCtrl = new AccountJpaController(utx, emf);
 
+            //นำ account ไอดีที่มาจาก session ไปค้นหาใน database
             Account depositAccount = accountCtrl.findAccount(AccountLoggedIn.getAccountid());
 
+            
+            //ถ้ามันไม่เท่ากับ null
             if (depositAccount != null) {
 
+                //นำเงินเก่ามาบวกกับเงินใหม่
                 depositAccount.setBalance(AmountDeposit + depositAccount.getBalance());
 
+                
+                //แก้ปัญหา Exception
                 try {
-
+                    //นำข้อมูลที่แก้ไขไปเมื่อแก้นำไปแก้ใน db
                     accountCtrl.edit(depositAccount);
 
                 } catch (RollbackFailureException rbf) {
